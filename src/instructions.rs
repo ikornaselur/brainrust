@@ -6,8 +6,8 @@ pub enum Instruction {
     MoveLeft,
     IncrementPtr,
     DecrementPtr,
-    OutputChar,
-    InputChar,
+    Output,
+    Input,
     LoopStart,
     LoopEnd,
 }
@@ -19,8 +19,8 @@ impl fmt::Display for Instruction {
             Instruction::MoveLeft => "<",
             Instruction::IncrementPtr => "+",
             Instruction::DecrementPtr => "-",
-            Instruction::OutputChar => ",",
-            Instruction::InputChar => ",",
+            Instruction::Output => ",",
+            Instruction::Input => ",",
             Instruction::LoopStart => "[",
             Instruction::LoopEnd => "]",
         };

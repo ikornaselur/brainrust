@@ -1,4 +1,4 @@
-use brainrust::{parse_input, Result};
+use brainrust;
 use clap::Parser;
 use std::path::PathBuf;
 
@@ -10,7 +10,7 @@ struct Args {
     input: PathBuf,
 }
 
-fn main() -> Result<()> {
+fn main() -> brainrust::Result<()> {
     let args = Args::parse();
 
     if !args.input.exists() {
@@ -39,12 +39,13 @@ fn main() -> Result<()> {
 
     let contents = std::fs::read_to_string(&args.input)?;
 
-    let program = parse_input(&contents)?;
+    let program = brainrust::parse_input(&contents)?;
 
-    for instr in program {
-        print!("{}", instr);
+    let mut vm = brainrust::VM::new();
+
+    for instruction in program {
+        vm.run_instruction(&instruction);
     }
-    println!();
 
     Ok(())
 }
