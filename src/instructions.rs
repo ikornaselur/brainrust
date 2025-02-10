@@ -1,6 +1,6 @@
 use std::fmt;
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq)]
 pub enum Instruction {
     MoveRight,
     MoveLeft,
@@ -19,7 +19,7 @@ impl fmt::Display for Instruction {
             Instruction::MoveLeft => "<",
             Instruction::IncrementPtr => "+",
             Instruction::DecrementPtr => "-",
-            Instruction::Output => ",",
+            Instruction::Output => ".",
             Instruction::Input => ",",
             Instruction::LoopStart => "[",
             Instruction::LoopEnd => "]",

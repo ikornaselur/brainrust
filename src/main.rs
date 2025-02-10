@@ -41,11 +41,8 @@ fn main() -> brainrust::Result<()> {
 
     let program = brainrust::parse_input(&contents)?;
 
-    let mut vm = brainrust::VM::new();
-
-    for instruction in program {
-        vm.run_instruction(&instruction);
-    }
+    let mut vm = brainrust::VM::new(program);
+    vm.run();
 
     Ok(())
 }
